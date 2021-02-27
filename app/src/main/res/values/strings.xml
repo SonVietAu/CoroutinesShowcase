@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">CoroutinesShowcase</string>
+    <string name="number_refreshing_message">Please wait, numbers are refreshing</string>
+
+    <string name="basics_information">
+        "This screen demonstrate basic coroutines. The following functionalities were implemented:
+         - A coroutine was used to load the initial Lotto number sets with a thread counter part that do exactly the same thing.
+         - The refresh and deletion of individual row are completed by coroutines.
+         - The refresh checked and refresh all demonstrate concurrency.
+         - And the stopping of refreshment demonstrate coroutine cancellation ability, though the implementation will only 'stop' coroutine rather than 'cancel'. Stopping means that any completed refreshment will have its new numbers shown in its individual row."
+    </string>
+
+    <string name="deferred_information">"       Apart from the overlapping functionalities from 'Coroutine Basics', this screen demonstrate coroutine 'Deferred' at work.
+
+        Click on the 'Refresh All' button to see the refreshment's Deferred objects being awaited till all are completed before the screen get updated.
+
+        The 'Stop Refreshing' button here also only stop the refreshment rather than cancel. By stopping, any completed individual refreshment are shown with its new numbers. "</string>
+
+    <string name="channel_information">"        This screen demonstrate Channel at work. Implementation wise, a top level coroutine 'launch' multiple 'grandchild' coroutines with those grandchildren 'send' the completed individual refreshment via a Channel where the top level 'receive'. With the grandchildren finishing their individual refreshment at different time, the result on the screen can be seen with the variation in the updating of the sets of lotto number.
+
+        Ensure there are less than 10 sets of Lotto Numbers and then click on 'Refresh All' at least 7 times to see the effect of coroutine Channel. Above 10 sets the effect can no longer be seen due to the 'delay' of 300 milliseconds that ensure the application does not encounter the 'Denial of Service' from the server. "</string>
+
+    <string name="cancellation_information">"        This screen demonstrate Job 'cancellation' at work. Implementation wise, the individual refreshing executions no longer save the data when completed individually. Rather, the saving only occur when all the individuals are completed giving the users a chance to cancel. By cancelling, all the old data are reloaded with the newly unsaved data being discarded.
+
+        Please click on 'Refresh All' and then quickly on 'Cancel Refreshing' to see cancellation at work. Otherwise, not clicking on 'Cancel Refreshing' is an option to allow the whole refreshment to complete. "</string>
+
+</resources>
